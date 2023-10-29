@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.shen1991.lsp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.shen1991.lsp"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    compileOnly files('libs/api-100.aar')
+    implementation files('libs/interface-100.aar')
+    implementation files('libs/service-100-1.0.0.aar')
+    implementation 'org.apache.commons:commons-lang3:3.13.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
