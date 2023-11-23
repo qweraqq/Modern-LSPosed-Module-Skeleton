@@ -34,6 +34,6 @@ dependencies {
     compileOnly files('libs/api-100.aar')
     implementation files('libs/interface-100.aar')
     implementation files('libs/service-100-1.0.0.aar')
-    implementation 'org.apache.commons:commons-lang3:3.13.0'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 }
