@@ -34,9 +34,11 @@ public class ClassloaderHook implements IHook{
             String name = cls.getName();
             if (! name.startsWith("java.") &&
                     ! name.startsWith("android.") &&
-                    ! name.startsWith("com.shen1991")) {
+                    ! name.startsWith("com.shen1991") &&
+                    ! name.startsWith("org.chromium") &&
+                    ! name.startsWith("com.android")) {
                 ;
-                ModuleEntry.module.log(TAG + "classLoader loadClass:" + name);
+                ModuleEntry.module.log(TAG + "classLoader loadClass: " + name);
             }
 
             // hook encrypted class
