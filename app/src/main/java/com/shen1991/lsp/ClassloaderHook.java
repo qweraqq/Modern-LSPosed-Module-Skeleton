@@ -18,6 +18,7 @@ public class ClassloaderHook implements IHook{
     private static final DisableFlagSecureHook disableFlagSecureHook = new DisableFlagSecureHook();
     private static final JustTrustMeHook justTrustMeHook = new JustTrustMeHook();
 
+
     @XposedHooker
     @SuppressWarnings("all")
     public class ClassloaderHooker implements XposedInterface.Hooker {
@@ -36,13 +37,18 @@ public class ClassloaderHook implements IHook{
                     ! name.startsWith("android.") &&
                     ! name.startsWith("com.shen1991") &&
                     ! name.startsWith("org.chromium") &&
-                    ! name.startsWith("com.android")) {
+                    ! name.startsWith("com.android") &&
+                    ! name.startsWith("org.bouncycastle") &&
+                    ! name.startsWith("javax") &&
+                    ! name.startsWith("D2a") // proguard
+            ) {
                 ;
                 ModuleEntry.module.log(TAG + "classLoader loadClass: " + name);
             }
 
+            String packageName = lpparam.getPackageName();
             // hook encrypted class
-            if (lpparam.getPackageName().equalsIgnoreCase("SOME.ENCRYPTED.PACKAGE") &&
+            if (packageName.equalsIgnoreCase("SOME.ENCRYPTED.PACKAGE") &&
                     name.endsWith("SOME.DECRYPTED.CLASS")){
 
                 // 防止截屏
@@ -50,6 +56,11 @@ public class ClassloaderHook implements IHook{
 
                 // SSL
                 justTrustMeHook.processHook(ModuleEntry.module, lpparam);
+
+                // Some custom hook
+
+                // Native inline hook
+                // System.loadLibrary("xx");
             }
 
         }
