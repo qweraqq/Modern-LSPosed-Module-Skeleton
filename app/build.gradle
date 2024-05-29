@@ -56,5 +56,5 @@ dependencies {
     implementation files('libs/service-100-1.0.0.aar')
     implementation 'com.bytedance.android:shadowhook:1.0.9'
     implementation 'org.apache.commons:commons-lang3:3.14.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
 }
