@@ -16,7 +16,7 @@ public class ClassloaderHook implements IHook{
 
     private static XposedModuleInterface.PackageLoadedParam lpparam;
     private static final DisableFlagSecureHook disableFlagSecureHook = new DisableFlagSecureHook();
-    private static final JustTrustMeHook justTrustMeHook = new JustTrustMeHook();
+    // private static final JustTrustMeHook justTrustMeHook = new JustTrustMeHook();
 
 
     @XposedHooker
@@ -55,7 +55,7 @@ public class ClassloaderHook implements IHook{
                 disableFlagSecureHook.processHook(ModuleEntry.module, lpparam);
 
                 // SSL
-                justTrustMeHook.processHook(ModuleEntry.module, lpparam);
+                // justTrustMeHook.processHook(ModuleEntry.module, lpparam);
 
                 // Some custom hook
 

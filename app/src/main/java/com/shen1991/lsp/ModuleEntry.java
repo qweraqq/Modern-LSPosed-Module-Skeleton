@@ -32,7 +32,7 @@ public class ModuleEntry extends XposedModule{
         ModuleEntry.module.log(TAG + "module apk path: " + this.getApplicationInfo().sourceDir);
         ModuleEntry.module.log(TAG + "----------");
 
-        justTrustMeHook.processHook(module, param);
+        // justTrustMeHook.processHook(module, param);
         disableFlagSecureHook.processHook(module, param);
         classloaderHook.processHook(module, param);
     }
